@@ -6,7 +6,7 @@
 |column               |type    |index         |not null         |uniqu    |
 |:----                |-----   |              |                 |         |
 |name                 |string  |add_index     |null: false      |ture     |
-devise  use
+use devise
 
 ###Userモデルのアソシエーション
 + has_many   :group_users
