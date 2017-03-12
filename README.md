@@ -3,10 +3,10 @@
 * Database creation
 
 ##Usersテーブル
-|column               |type    |
-|:----                |-----   |
-|name                 |string  |
-|devise  use          |text  |
+|column               |type    |index         |not null         |uniqu    |
+|:----                |-----   |              |                 |         |
+|name                 |string  |add_index     |null: false      |ture     |
+|devise  use                   |              |null: false      |ture     |
 
 ###Userモデルのアソシエーション
 + has_many   :group_users
@@ -15,35 +15,35 @@
 
 
 ##Groupsテーブル
-|column               |type    |
-|:----                |-----   |
-|name           |string  |
+|column               |type    |index         |not null         |uniqu    |
+|:----                |-----   |              |                 |         |
+|name                 |string  |add_index     |null: false      |ture     |
 
 
 ###Groupモデルのアソシエーション
-+ has_many   :users_groups
++ has_many   :group_users
 + has_many   users through group_users
 + has_many   messages
 
 
-##Users_groupsテーブル
-|column               |type    |
-|:----                |-----   |
-|user_id              |integer |
-|group_id             |integer |
+##group_usersテーブル
+|column               |type    |index         |not null         |uniqu    |
+|:----                |-----   |              |                 |         |
+|user_id              |integer |              |null: false      |ture     |
+|group_id             |integer |              |null: false      |ture     |
 
-###user_groupモデルのアソシエーション
+###group_userモデルのアソシエーション
 + belongs_to :user
 + belongs_to :group
 
 
 ##messagesテーブル
-|column               |type    |
-|:----                |-----   |
-|body                 |string  |
-|image                |string  |
-|group_id             |integer |
-|user_id              |integer |
-
+|column               |type    |index         |not null         |uniqu    |
+|:----                |-----   |              |                 |         |
+|body                 |string  |              |null: false      |         |
+|image                |string  |              |null: false      |         |
+|group_id             |integer |              |null: false      |         |
+|user_id              |integer |              |null: false      |         |
 ###Messageモデルのアソシエーション
 + belongs_to :user
++ belongs_to :group
