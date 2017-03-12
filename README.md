@@ -5,7 +5,7 @@
 ##Usersテーブル
 |column               |type    |index         |not null         |uniqu    |
 |:----                |-----   |              |                 |         |
-|name                 |string  |add_index     |null: false      |ture     |
+|name                 |string  |yes           |yes              |yes      |
 use devise
 
 ###Userモデルのアソシエーション
@@ -17,7 +17,7 @@ use devise
 ##Groupsテーブル
 |column               |type    |index         |not null         |uniqu    |
 |:----                |-----   |              |                 |         |
-|name                 |string  |add_index     |null: false      |ture     |
+|name                 |string  |yes           |yes              |yes      |
 
 
 ###Groupモデルのアソシエーション
@@ -29,8 +29,8 @@ use devise
 ##group_usersテーブル
 |column               |type    |index         |not null         |uniqu    |
 |:----                |-----   |              |                 |         |
-|user_id              |integer |              |null: false      |ture     |
-|group_id             |integer |              |null: false      |ture     |
+|user_id              |integer |              |yes              |yes      |
+|group_id             |integer |              |yes              |yes      |
 
 ###group_userモデルのアソシエーション
 + belongs_to :user
@@ -40,10 +40,10 @@ use devise
 ##messagesテーブル
 |column               |type    |index         |not null         |uniqu    |
 |:----                |-----   |              |                 |         |
-|body                 |string  |              |null: false      |         |
-|image                |string  |              |null: false      |         |
-|group_id             |integer |              |null: false      |         |
-|user_id              |integer |              |null: false      |         |
+|body                 |string  |              |yes              |         |
+|image                |string  |              |yes              |         |
+|group_id             |integer |              |yes              |         |
+|user_id              |integer |              |yes              |         |
 ###Messageモデルのアソシエーション
 + belongs_to :user
 + belongs_to :group
