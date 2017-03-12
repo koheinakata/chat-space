@@ -36,8 +36,8 @@ Things you may want to cover:
 ##users_groupsテーブル
 |column               |type    |
 |:----                |-----   |
-|user_id              |string  |
-|group_id             |string  |
+|user_id              |integer |
+|group_id             |integer |
 
 ###user_groupモデルのアソシエーション
 + belongs_to :user
@@ -49,8 +49,8 @@ Things you may want to cover:
 |:----                |-----   |
 |body                 |string  |
 |image                |string  |
-|group_id             |string  |
-|user_id              |string  |
+|group_id             |integer |
+|user_id              |integer |
 
 ###Contentモデルのアソシエーション
 + belongs_to :user
