@@ -1,0 +1,120 @@
+/*// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+.content {
+  @include clearfix();
+  &__left {
+    background-color: #2f3e51;
+    width: 30%;
+    min-height: 700px;
+    float: left;
+    &__top {
+      background-color: #253141;
+      height: 70px;
+      padding: 35px 20px 0px;
+      &__username {
+        font-size: 16px;
+        color: #ffffff;
+        float: left;
+      }
+      &__left {
+        float: right;
+        margin: 0px;
+      }
+    }
+    &__buttom {
+      &__element {
+        background-color: #253141;
+        padding: 20px 20px 40px;
+        &__groupname {
+          font-size: 16px;
+          color: #ffffff;
+          padding-bottom: 5px;
+        }
+        &__message {
+          font-size: 16px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  &__right {
+    background-color: #ffffff;
+    width: 70%;
+    float: left;
+    &__top {
+      background-color: #dddddd;
+      height: 70px;
+      padding: 35px 20px 0px;
+      &__left {
+        float: left;
+        &__groupname {
+          font-size: 20px;
+          color: #333333;
+          padding-bottom: 15px;
+        }
+        &__member {
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__right {
+        text-align: center;
+        float: right;
+        height: 30px;
+        width: 60px;
+        border: 1px solid blue;
+        &__edit {
+        vertical-align: middle;
+        color: blue;
+        display: inline-block;
+        }
+      }
+    }
+    &__middle {
+      padding: 0px 0px 20px;
+      min-height: 450px;
+      &__element {
+        padding: 46px 20px 40px;
+        &__username {
+          font-size: 16px;
+          color: #434a54;
+        }
+        &__message {
+          font-size: 14px;
+          color: #434a54;
+        }
+      }
+    }
+    &__bottom {
+      height: 50px;
+      background-color: gray;
+      padding: 20px;
+      &__textarea {
+        width: 70%;
+        float: left;
+      }
+      &__submit {
+        padding: 7px 25px;
+        margin: 10px;
+        font-size: 1em;
+        background-color: #38aef0;
+        color: #fff;
+        border-style: none;
+        float: left;
+      }
+    }
+  }
+}
+
+.set {
+  color: #ffffff;
+}
+
+.picture {
+  color: #000000;
+  margin: 10px;
+  float: left
+}
+
