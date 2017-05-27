@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   # before_action :move_to_signed_in
 
   def index
+    @groups = current_user.groups
   end
 
   # def move_to_signed_in
