@@ -27,10 +27,10 @@ use devise
 
 
 ##group_usersテーブル
-|column               |type    |index         |not null         |unique   |
-|:----                |-----   |              |                 |         |
-|user_id              |integer |yes           |yes              |         |
-|group_id             |integer |yes           |yes              |         |
+|column               |type    |index         |not null         |unique   |foreign_key    |
+|:----                |-----   |              |                 |         |         |
+|user_id              |integer |yes           |yes              |         |true     |
+|group_id             |integer |yes           |yes              |         |true     |
 
 ###group_userモデルのアソシエーション
 + belongs_to :user
