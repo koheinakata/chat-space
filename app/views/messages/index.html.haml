@@ -14,11 +14,7 @@
           = link_to new_user_session_path do
             %i.fa.fa-cog.fa-2x.set{"aria-hidden" => "true"}
     .content__left__buttom
-    - @groups.each do |group|
-      .content__left__buttom__element
-        %p.content__left__buttom__element__groupname
-          = group.name
-        %p.content__left__buttom__element__message message
+      = render partial: "groups/group_index"
   .content__right
     .content__right__top
       .content__right__top__left
