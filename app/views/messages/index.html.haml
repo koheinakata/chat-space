@@ -21,13 +21,9 @@
         %span.content__right__middle__element__date
           = message.created_at
         %p.content__right__middle__element__message
-          = message.body
+          = message.try(:body)
         %p.content__right__middle__element__image
-          = image_tag message.image.url
-    / .content__right__bottom
-    /   %textarea.content__right__bottom__textarea{:placeholder => "type a message"}
-    /   %i.fa.fa-picture-o.fa-2x.picture{"aria-hidden" => "true"}
-    /   %input.content__right__bottom__submit{:name => "submit", :type => "submit", :value => "Submit"}/
+          = image_tag message.try(:image)
     .content__right__bottom
       = form_for [@group, @message] do |f|
         = f.text_field :body, placeholder: 'type a message', class: 'textarea'

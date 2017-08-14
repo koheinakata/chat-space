@@ -1,7 +1,6 @@
 .content__left
   .content__left__top
     %p.content__left__top__username
-      / %b username
       - if user_signed_in?
         = current_user.name
     .content__left__top__left
@@ -9,7 +8,7 @@
       - if user_signed_in?
         = link_to edit_user_registration_path do
           %i.fa.fa-cog.fa-2x.set{"aria-hidden" => "true"}
-      - elsif
+      - else
         = link_to new_user_session_path do
           %i.fa.fa-cog.fa-2x.set{"aria-hidden" => "true"}
   .content__left__buttom

@@ -4,39 +4,34 @@ class MessagesController < ApplicationController
   # before_action :move_to_signed_in
 
   def index
-    # @group = Group.find(1)
-    # @groups = current_user.groups
     @message = Message.new
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
+    # current_user.messages.new←これでcurrent_userのuser_idをセットできる
     if @message.save
       redirect_to controller: :messages, action: :index
     else
       flash[:alert] = "メッセージと画像を入力してください"
-      redirect_to controller: :messages, action: :index
+      # redirect_to controller: :messages, action: :index(参考までに残しております)
+      render :index
     end
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:body, :image).merge(group_id: 1, user_id: 1)
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
   def set_group
-    @group = Group.find(1)
-    # @group = current_user.groups.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @groups = current_user.groups
   end
 
   def set_messages
     @messages = @group.messages.includes(:user)
   end
-
-  # def move_to_signed_in
-  #   redirect_to "new_user_session_path" unless user_signed_in?
-  # end
 
 end
