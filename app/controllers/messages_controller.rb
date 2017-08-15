@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
 
-  before_action :set_group, :set_messages, only: [:index, :create]
-  # before_action :move_to_signed_in
+  before_action :set_group, :set_groups, :set_messages, only: [:index, :create]
 
   def index
     @message = Message.new
@@ -27,6 +26,9 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def set_groups
     @groups = current_user.groups
   end
 

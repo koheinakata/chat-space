@@ -1,0 +1,8 @@
+%span.content__right__middle__element__username
+  = message.user.name
+%span.content__right__middle__element__date
+  = message.created_at
+%p.content__right__middle__element__message
+  = message.try(:body)
+%p.content__right__middle__element__image
+  = image_tag message.try(:image)

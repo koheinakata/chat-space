@@ -16,14 +16,7 @@
     .content__right__middle
       .content__right__middle__element
       - @messages.each do |message|
-        %span.content__right__middle__element__username
-          = message.user.name
-        %span.content__right__middle__element__date
-          = message.created_at
-        %p.content__right__middle__element__message
-          = message.try(:body)
-        %p.content__right__middle__element__image
-          = image_tag message.try(:image)
+        = render partial: 'message', locals: { message:message }
     .content__right__bottom
       = form_for [@group, @message] do |f|
         = f.text_field :body, placeholder: 'type a message', class: 'textarea'
