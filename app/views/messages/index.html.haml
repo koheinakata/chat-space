@@ -1,35 +1,26 @@
+- flash.each do |key, value|
+  = content_tag :div, value, class: "flash flash-#{key}"
 .content.clearfix
-  .content__left
-    .content__left__top
-      %p.content__left__top__username
-        / %b username
-        - if user_signed_in?
-          = current_user.name
-      .content__left__top__left
-        %i.fa.fa-pencil-square-o.fa-2x.set{"aria-hidden" => "true"}
-        - if user_signed_in?
-          = link_to edit_user_registration_path do
-            %i.fa.fa-cog.fa-2x.set{"aria-hidden" => "true"}
-        - elsif
-          = link_to new_user_session_path do
-            %i.fa.fa-cog.fa-2x.set{"aria-hidden" => "true"}
-    .content__left__buttom
-      = render partial: "groups/group_index"
+  = render partial: "groups/group_index"
   .content__right
     .content__right__top
       .content__right__top__left
-        %p.content__right__top__left__groupname sample
-        %p.content__right__top__left__member members:kohei
+        %p.content__right__top__left__groupname
+          = @group.name
+        %p.content__right__top__left__member
+          Members:
+          - @group.users.each do |user|
+            = user.name
       .content__right__top__right
         %span.content__right__top__right__edit edit
     .content__right__middle
       .content__right__middle__element
-        %p.content__right__middle__element__username kohei
-        %p.content__right__middle__element__message こんにちは
-      .content__right__middle__element
-        %p.content__right__middle__element__username kohei
-        %p.content__right__middle__element__message こんにちは
+      - @messages.each do |message|
+        = render partial: 'message', locals: { message:message }
     .content__right__bottom
-      %textarea.content__right__bottom__textarea{:placeholder => "type a message"}
-      %i.fa.fa-picture-o.fa-2x.picture{"aria-hidden" => "true"}
-      %input.content__right__bottom__submit{:name => "submit", :type => "submit", :value => "Submit"}/
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, placeholder: 'type a message', class: 'textarea'
+        = f.label :image do
+          %i.fa.fa-picture-o.fa-2x.picture{"aria-hidden" => "true"}
+        = f.file_field :image, style: "display: none;"
+        = f.submit :sent, class: 'content__right__bottom__submit'
