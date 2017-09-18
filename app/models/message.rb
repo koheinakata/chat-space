@@ -4,6 +4,11 @@ class Message < ApplicationRecord
 
   #validation
   validates :body_or_image, :user_id, :group_id, presence: true
+  validates :body, presence: true, unless: :image?
+  validates :image, presence: true, unless: :body?
+
+
+  mount_uploader :image, ImageUploader
 
   private
   def body_or_image
